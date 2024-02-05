@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentune's Day</title>
+</head>
+<style>
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #F9F9F8;
+    }
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10vh;
+    }
+
+    button {
+        padding: 10px;
+        min-width: 100px;
+        max-width: auto;
+        border: none;
+        cursor: pointer;
+    }
+    .main1 img {
+        height: 250px;
+        width: 250px;
+    }
+
+    
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    .yes {
+        background-color: green;
+        color: white;
+    }
+
+    #no {
+        background-color: rgb(254, 36, 36);
+        color: white;
+    }
+
+@media only screen and (max-width: 768px) {
+    
+    body {
+        font-size: 14px; 
+    }
+
+    .main-container {
+        padding: 10px;
+    }
+
+    .main2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+
+    .yes {
+        background-color: green;
+        color: white;
+    }
+
+    #no {
+        background-color: rgb(254, 36, 36);
+        color: white;
+    }
+}
+
+</style>
+<body>
+<div class="main-container">
+
+    <div class="main1">
+        <img src="gif1.gif" alt="YV">
+    </div>
+
+    <div class="main2">
+    <h3>Will you be my Valentine?</h3> <br>
+    <div class="btn">
+        <button id="box" class="yes">Yes</button>
+        <button id="no" onclick="changeButtonText()">No</button>
+    </div>
+   
+    </div>
+</div>
+
+
+<script>
+  const box = document.getElementById('box');
+  let currentIndex = 0;
+  const buttonTexts = ['Are You Sure?', 'Really Sure?', 'Think again.', 'Last Chance.','Surely Not?','You might regret this!','Give it another thought!','Are You absolutely certain?','This could be a mistake!','Have a heart.','Do not be so cold!','change of heart','would not you reconsider?','Is that your final answer?','You are breaking my heart :('];
+
+  document.getElementById("box").addEventListener("click", function() {
+            window.location.href = "yes.html";
+        });
+
+  function increaseSize() {
+    let currentWidth = box.clientWidth;
+    let currentHeight = box.clientHeight;
+    box.style.width = currentWidth + 10 + 'px';
+    box.style.height = currentHeight + 10 + 'px';
+  }
+
+  function changeButtonText() {
+    increaseSize();
+    const noButton = document.querySelector('button:last-child');
+    noButton.innerText = buttonTexts[currentIndex];
+    currentIndex = (currentIndex + 1) % buttonTexts.length;
+  }
+</script>
+
+</body>
+</html>
